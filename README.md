@@ -17,6 +17,7 @@ pip install langchain pypdf rapidocr-onnxruntime modelscope transformers faiss-c
 1，启动vllm的openai兼容server：
 
 ```
+export VLLM_USE_MODELSCOPE=True
 python -m vllm.entrypoints.openai.api_server --model 'qwen/Qwen-7B-Chat-Int4' --trust-remote-code -q gptq --dtype float16 --gpu-memory-utilization 0.6
 ```
 

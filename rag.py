@@ -35,6 +35,23 @@ Question: {query}
 ''')
 full_chat_prompt=ChatPromptTemplate.from_messages([system_prompt,MessagesPlaceholder(variable_name="chat_history"),user_prompt])
 
+'''
+<|im_start|>system
+You are a helpful assistant.
+<|im_end|>
+...
+<|im_start|>user
+Answer the question based only on the following context:
+
+{context}
+
+Question: {query}
+<|im_end|>
+<|im_start|>assitant
+......
+<|im_end|>
+'''
+
 # Chat chain
 chat_chain={
         "context": itemgetter("query") | retriever,
